@@ -7,5 +7,5 @@ Just clone the repository somewhere in your filesystem, decompress the .zip file
 ## Built With
 * [JQuery](https://jquery.com)
 
-##Contributing
+## Contributing
 You can contribute if you want, is a very small proyect but i would be very happy to see something more worked and with more stuff, so if you want to be a contributor you can contact me.

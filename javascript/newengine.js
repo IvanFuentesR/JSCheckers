@@ -23,18 +23,18 @@ $(document).ready(function() {
 
 			if(gameboard.ReadUnitBoxValue(idbutton) === 0) {
 
-				console.log("Casilla vacia, continua moviendo.");
+				$(".msgconsole").append("Casilla vacia, continua moviendo.");
 
 			}
 
 			else if(gameboard.ReadUnitBoxValue(idbutton) === 1 && player1.ReturnTurn()) {
 
-				console.log("Casilla con dama, a mover!");
+				$(".msgconsole").append("Casilla con dama, a mover!");
 				$("#"+idbutton).css("background-color", "yellow");
 				var ppositions = {
 					ul : idbutton - 11, ur : idbutton - 9
 				}
-				console.log(gameboard.ReadUnitBoxValue(ppositions["ul"]) + " " + gameboard.ReadUnitBoxValue(ppositions["ur"]))
+				$(".msgconsole").append(gameboard.ReadUnitBoxValue(ppositions["ul"]) + " " + gameboard.ReadUnitBoxValue(ppositions["ur"]))
 
 				if(gameboard.ReadUnitBoxValue(ppositions["ul"]) == 0) {
 
@@ -49,7 +49,7 @@ $(document).ready(function() {
 				}
 				//Movimientos para comer
 				if(gameboard.ReadUnitBoxValue(ppositions["ur"]) == 2) {
-					console.log("Dama enemiga en UR");
+					$(".msgconsole").append("Dama enemiga en UR");
 					posmvtoeat = ppositions["ur"] - 9;
 					if(gameboard.ReadUnitBoxValue(posmvtoeat) == 0)
 					{
@@ -59,7 +59,7 @@ $(document).ready(function() {
 				}
 
 				if(gameboard.ReadUnitBoxValue(ppositions["ul"]) == 2) {
-					console.log("Dama enemiga en UL");
+					$(".msgconsole").append("Dama enemiga en UL");
 					posmvtoeat = ppositions["ul"] - 11;
 					if(gameboard.ReadUnitBoxValue(posmvtoeat) == 0)
 					{
@@ -73,13 +73,13 @@ $(document).ready(function() {
 			}
 
 			else if(gameboard.ReadUnitBoxValue(idbutton) === 2 && player2.ReturnTurn()) {
-				console.log("Casilla con dama, a mover!");
+				$(".msgconsole").append("Casilla con dama, a mover!");
 				$("#"+idbutton).css("background-color", "yellow");
 
 				var ppositions = {
 					ll : parseInt(idbutton) + parseInt(9), lr : parseInt(idbutton) + parseInt(11)
 				}
-				console.log(gameboard.ReadUnitBoxValue(ppositions["ll"]) + " " + gameboard.ReadUnitBoxValue(ppositions["lr"]))
+				$(".msgconsole").append(gameboard.ReadUnitBoxValue(ppositions["ll"]) + " " + gameboard.ReadUnitBoxValue(ppositions["lr"]))
 				if(gameboard.ReadUnitBoxValue(ppositions["ll"]) == 0) {
 
 					gameboard.GiveBoxColor(ppositions["ll"]);
@@ -92,7 +92,7 @@ $(document).ready(function() {
 				}
 				//Movimientos para comer
 				if(gameboard.ReadUnitBoxValue(ppositions["lr"]) == 1) {
-					console.log("Dama enemiga en LR");
+					$(".msgconsole").append("Dama enemiga en LR");
 					posmvtoeat = parseInt(ppositions["lr"]) + parseInt(11);
 					if(gameboard.ReadUnitBoxValue(posmvtoeat) == 0)
 					{
@@ -102,7 +102,7 @@ $(document).ready(function() {
 				}
 
 				if(gameboard.ReadUnitBoxValue(ppositions["ll"]) == 1) {
-					console.log("Dama enemiga en LL");
+					$(".msgconsole").append("Dama enemiga en LL");
 					posmvtoeat = parseInt(ppositions["ll"]) + parseInt(9);
 					if(gameboard.ReadUnitBoxValue(posmvtoeat) == 0)
 					{
@@ -113,7 +113,7 @@ $(document).ready(function() {
 
 				if( gameboard.ReadUnitBoxValue(ppositions["ll"]) != 0 && gameboard.ReadUnitBoxValue(ppositions["lr"]) != 0)
 				{
-					console.log("No hay movimientos validos.");
+					$(".msgconsole").append("No hay movimientos validos.");
 				}
 
 				
@@ -124,55 +124,55 @@ $(document).ready(function() {
 
 		else
 		{
-			console.log("A mover");
+			$(".msgconsole").append("<p>A mover</p>");
 			if(gameboard.ReadUnitBoxValue(idbutton) != 0)
 			{
-				console.log("Cliqueaste una casilla con dama, no se puede realizar el movimiento.");
+				$(".msgconsole").append("Cliqueaste una casilla con dama, no se puede realizar el movimiento.");
 			}
 
 			else {
 
 				indexLID = lastid.length - 1
-				console.log(lastid[indexLID]);
+				$(".msgconsole").append(lastid[indexLID]);
 
 				var positions = {
 					ul : lastid[indexLID] - 11, ur : lastid[indexLID] - 9, ll : parseInt(lastid[indexLID]) + parseInt(9), lr : parseInt(lastid[indexLID]) + parseInt(11)
 					}
 
-					console.log("Turno del jugador 1: " + player1.ReturnTurn());
-					console.log("Turno del jugador 2: " + player2.ReturnTurn());
+					$(".msgconsole").append("Turno del jugador 1: " + player1.ReturnTurn());
+					$(".msgconsole").append("Turno del jugador 2: " + player2.ReturnTurn());
 					if(player1.ReturnTurn()) {
 
 					if(gameboard.ReadUnitBoxValue(positions["ur"]) == 2) {
-						console.log("DAMA ENEMIGA EN UR!")
-						console.log(gameboard.ReadUnitBoxValue(positions["ur"] - 9))
+						$(".msgconsole").append("DAMA ENEMIGA EN UR!")
+						$(".msgconsole").append(gameboard.ReadUnitBoxValue(positions["ur"] - 9))
 						if(gameboard.ReadUnitBoxValue(positions["ur"] - 9) == 0) {
-							console.log("POSIBILIDAD DE COMER EN UR!")
+							$(".msgconsole").append("POSIBILIDAD DE COMER EN UR!")
 							  postoeatUR = positions["ur"] - 9;
 						}
 					}
 
 					if(gameboard.ReadUnitBoxValue(positions["ul"]) == 2) {
-						console.log("DAMA ENEMIGA EN UL!");
-						console.log(gameboard.ReadUnitBoxValue(positions["ul"] - 11))
+						$(".msgconsole").append("DAMA ENEMIGA EN UL!");
+						$(".msgconsole").append(gameboard.ReadUnitBoxValue(positions["ul"] - 11))
 						if(gameboard.ReadUnitBoxValue(positions["ul"] - 11) == 0)
 						{
-							console.log("POSIBILIDAD DE COMER EN UL!")
+							$(".msgconsole").append("POSIBILIDAD DE COMER EN UL!")
 							postoeatUL = positions["ul"] - 11;
 
 						}
 					}
 
-					console.log("Posicion para comer: " +   postoeatUR);
-					console.log("Posicion para comer: " + postoeatUL);
+					$(".msgconsole").append("Posicion para comer: " +   postoeatUR);
+					$(".msgconsole").append("Posicion para comer: " + postoeatUL);
 
-					console.log("Turno correcto.");
+					$(".msgconsole").append("Turno correcto.");
 
-					console.log(idbutton + " " + positions["ul"] + " " + positions["ur"]);
+					$(".msgconsole").append(idbutton + " " + positions["ul"] + " " + positions["ur"]);
 
 					if(idbutton == positions["ul"]) {
 
-					console.log("Movimiento valido.");
+					$(".msgconsole").append("Movimiento valido.");
 					gameboard.Move(idbutton,lastid[indexLID],1)
 					player1.ChangeOfTurn(false);
 					player2.ChangeOfTurn(true);
@@ -181,7 +181,7 @@ $(document).ready(function() {
 					}
 
 					else if(idbutton == positions["ur"]) {
-						console.log("Movimiento valido.");
+						$(".msgconsole").append("Movimiento valido.");
 						gameboard.Move(idbutton,lastid[indexLID],1)
 						player1.ChangeOfTurn(false);
 						player2.ChangeOfTurn(true);
@@ -189,7 +189,7 @@ $(document).ready(function() {
 					}
 
 					else if(idbutton == postoeatUR) {
-						console.log("Movimiento para COMER!");
+						$(".msgconsole").append("Movimiento para COMER!");
 						gameboard.Eat(idbutton,lastid[indexLID],positions["ur"],1)
 						player2.OnePointLess();
 						player1.ChangeOfTurn(false);
@@ -199,12 +199,12 @@ $(document).ready(function() {
 						{
 							alert("El jugador 1 ha ganado!");
 						}
-						console.log(player2.ReturnPoints());
+						$(".msgconsole").append(player2.ReturnPoints());
 
 					}
 
 					else if(idbutton == postoeatUL) {
-						console.log("Movimiento para COMER!");
+						$(".msgconsole").append("Movimiento para COMER!");
 						gameboard.Eat(idbutton,lastid[indexLID],positions["ul"],1)
 						player2.OnePointLess();
 						player1.ChangeOfTurn(false);
@@ -214,55 +214,55 @@ $(document).ready(function() {
 						{
 							alert("El jugador 1 ha ganado!");
 						}
-						console.log(player2.ReturnPoints());
+						$(".msgconsole").append(player2.ReturnPoints());
 					}
 
 					
 
 					else {
-					console.log("El movimiento no es valido.");
+					$(".msgconsole").append("El movimiento no es valido.");
 					gameboard.ReloadBoard();
 					ismoving = 0;
 					}
-					console.log("Turno del jugador uno al terminar el turno: " + player1.ReturnTurn());
-					console.log("Turno del jugador dos al terminar el turno: " + player2.ReturnTurn());
+					$(".msgconsole").append("Turno del jugador uno al terminar el turno: " + player1.ReturnTurn());
+					$(".msgconsole").append("Turno del jugador dos al terminar el turno: " + player2.ReturnTurn());
 					}
 
 
 					else if(player2.ReturnTurn()) {
-						console.log(gameboard.ReadUnitBoxValue(positions["lr"]));
+						$(".msgconsole").append(gameboard.ReadUnitBoxValue(positions["lr"]));
 
 						if(gameboard.ReadUnitBoxValue(positions["lr"]) == 1) {
-						console.log("DAMA ENEMIGA EN LR!")
-						console.log(gameboard.ReadUnitBoxValue(parseInt(positions["lr"]) + parseInt(11)))
+						$(".msgconsole").append("DAMA ENEMIGA EN LR!")
+						$(".msgconsole").append(gameboard.ReadUnitBoxValue(parseInt(positions["lr"]) + parseInt(11)))
 
 						if(gameboard.ReadUnitBoxValue(parseInt(positions["lr"]) + parseInt(11)) == 0) {
-							console.log("POSIBILIDAD DE COMER EN LR!")
+							$(".msgconsole").append("POSIBILIDAD DE COMER EN LR!")
 							  postoeatLR = parseInt(positions["lr"]) + parseInt(11);
 						}
 					}
 
 					if(gameboard.ReadUnitBoxValue(positions["ll"]) == 1) {
-						console.log("DAMA ENEMIGA EN LL!");
-						console.log(gameboard.ReadUnitBoxValue(parseInt(positions["ll"]) + parseInt(9)))
+						$(".msgconsole").append("DAMA ENEMIGA EN LL!");
+						$(".msgconsole").append(gameboard.ReadUnitBoxValue(parseInt(positions["ll"]) + parseInt(9)))
 						if(gameboard.ReadUnitBoxValue(parseInt(positions["ll"]) + parseInt(9)) == 0)
 						{
-							console.log("POSIBILIDAD DE COMER EN LL!")
+							$(".msgconsole").append("POSIBILIDAD DE COMER EN LL!")
 							postoeatLL = parseInt(positions["ll"]) + parseInt(9);
 
 						}
 					}
 
-					console.log("Posicion para comer: " + postoeatLR);
-					console.log("Posicion para comer: " + postoeatLL);
+					$(".msgconsole").append("Posicion para comer: " + postoeatLR);
+					$(".msgconsole").append("Posicion para comer: " + postoeatLL);
 
-						console.log("Turno correcto.");
+						$(".msgconsole").append("Turno correcto.");
 
-					console.log(idbutton + " " + positions["ll"] + " " + positions["lr"]);
+					$(".msgconsole").append(idbutton + " " + positions["ll"] + " " + positions["lr"]);
 
 					if(idbutton == positions["ll"]) {
 
-					console.log("Movimiento valido.");
+					$(".msgconsole").append("Movimiento valido.");
 					gameboard.Move(idbutton,lastid[indexLID],2)
 					player1.ChangeOfTurn(true);
 					player2.ChangeOfTurn(false);
@@ -272,14 +272,14 @@ $(document).ready(function() {
 
 					else if(idbutton == positions["lr"])
 					{
-						console.log("Movimiento valido.");
+						$(".msgconsole").append("Movimiento valido.");
 						gameboard.Move(idbutton,lastid[indexLID],2)
 						player1.ChangeOfTurn(true);
 						player2.ChangeOfTurn(false);
 						ismoving = 0;	
 					}
 					else if(idbutton == postoeatLR) {
-						console.log("Movimiento para COMER!");
+						$(".msgconsole").append("Movimiento para COMER!");
 						gameboard.Eat(idbutton,lastid[indexLID],positions["lr"],2)
 						player1.OnePointLess();
 						player1.ChangeOfTurn(true);
@@ -289,12 +289,12 @@ $(document).ready(function() {
 						{
 							alert("El jugador 2 ha ganado!");
 						}
-						console.log(player1.ReturnPoints());
+						$(".msgconsole").append(player1.ReturnPoints());
 
 					}
 
 					else if(idbutton == postoeatLL) {
-						console.log("Movimiento para COMER!");
+						$(".msgconsole").append("Movimiento para COMER!");
 						gameboard.Eat(idbutton,lastid[indexLID],positions["ll"],2)
 						player1.OnePointLess();
 						player1.ChangeOfTurn(true);
@@ -304,23 +304,23 @@ $(document).ready(function() {
 						{
 							alert("El jugador 2 ha ganado!");
 						}
-						console.log(player1.ReturnPoints());
+						$(".msgconsole").append(player1.ReturnPoints());
 					}
 
 
 					else {
-					console.log("El movimiento no es valido.");
+					$(".msgconsole").append("El movimiento no es valido.");
 					gameboard.ReloadBoard();
 					ismoving = 0;
 					}
-					console.log("Turno del jugador uno al terminar el turno: " + player1.ReturnTurn());
-					console.log("Turno del jugador dos al terminar el turno: " + player2.ReturnTurn());
+					$(".msgconsole").append("Turno del jugador uno al terminar el turno: " + player1.ReturnTurn());
+					$(".msgconsole").append("Turno del jugador dos al terminar el turno: " + player2.ReturnTurn());
 
 					}
 
 					else
 					{
-						console.log("Ocurrio un problema determinando el turno del jugador.");
+						$(".msgconsole").append("Ocurrio un problema determinando el turno del jugador.");
 					}
 
 
@@ -347,23 +347,22 @@ var Board = (function() {
 	
 
 	Board.loadBoxesValues = function() {
-	var zerovalues = []
-	for (var values in boxes) {
-			 
-			 var mapclass = $("#"+values).attr("class");
-			 Board.ColorByClass(values,mapclass);
-			//console.log(values + " " + boxes[values]);
+		var zerovalues = []
+		for (var values in boxes) {
+				 
+				 var mapclass = $("#"+values).attr("class");
+				 Board.ColorByClass(values,mapclass);
 
-				if (boxes[values] == 2) {               
-					$("#"+values).css("color", "red");
-					$("#"+values).html("0")
-					}
+					if (boxes[values] == 2) {               
+						$("#"+values).css("color", "red");
+						$("#"+values).html("O")
+						}
 
-                else if (boxes[values] == 1) {	               
-					$("#"+values).css("color", "green");
-					$("#"+values).html("0");
-					}
-	}
+	                else if (boxes[values] == 1) {	               
+						$("#"+values).css("color", "green");
+						$("#"+values).html("O");
+					} 
+		}
 	}
 
 	Board.prototype.ReloadBoard = function() {

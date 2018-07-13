@@ -2,23 +2,63 @@
 <html lang="en">
 <head>
 <style>
-	.black{
+
+
+	.header {
+		text-align: center;
+		font-size: 36px;
+	}
+
+	.msgconsole {
+		text-align: center;
+	} 
+
+	.white {
 		display: inline-block;
 		border: 1px;
 		border-style: solid;
 		border-color: white;
-		background-color: black;
-		font-size: 20px;
+    	font-size: 20px;
+    	color: white;
+		background-color: #FFFFFF; /* Green */
+    	padding: 15px 32px;
+    	text-align: center;
+    	text-decoration: none;
+    	display: inline-block;
+    	font-size: 16px;
 	}
-	.white{
+
+	.black {
 		display: inline-block;
 		border: 1px;
 		border-style: solid;
 		border-color: black;
-    	background-color: white;
-    	font-size: 20px;
-    	color: white;
+		font-size: 20px;
+		background-color: #000000
+		border: none;
+		color: black;
+		padding: 15px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
 	}
+
+	#CircleRed {
+      width: 25px;
+      height: 25px;
+      -webkit-border-radius: 25px;
+      -moz-border-radius: 25px;
+      border-radius: 25px;
+      background: red;
+    }
+    #CircleGreen {
+      width: 25px;
+      height: 25px;
+      -webkit-border-radius: 25px;
+      -moz-border-radius: 25px;
+      border-radius: 25px;	
+      background: green;
+    }
 
 </style>
 	<meta charset="UTF-8">
@@ -28,7 +68,9 @@
 </head>
 <body>
 
-<div class="div1">
+<div class="header">JS Checkers</div>
+
+<div class="div1" align="center">
 	<button class="white" id="11">a</button>
 	<button class="black" id="12">a</button>
 	<button class="white" id="13">a</button>
@@ -38,7 +80,7 @@
 	<button class="white" id="17">a</button>
 	<button class="black" id="18">a</button>
 </div>
-<div class="div2">
+<div class="div2" align="center">
 	<button class="black" id="21">a</button>
 	<button class="white" id="22">a</button>
 	<button class="black" id="23">a</button>
@@ -48,7 +90,7 @@
 	<button class="black" id="27">a</button>
 	<button class="white" id="28">a</button>
 </div>
-<div class="div3">
+<div class="div3" align="center">
 	<button class="white" id="31">a</button>
 	<button class="black" id="32">a</button>
 	<button class="white" id="33">a</button>
@@ -58,7 +100,7 @@
 	<button class="white" id="37">a</button>
 	<button class="black" id="38">a</button>
 </div>
-<div class="div4">
+<div class="div4" align="center">
 	<button class="black" id="41">a</button>
 	<button class="white" id="42">a</button>
 	<button class="black" id="43">a</button>
@@ -68,7 +110,7 @@
 	<button class="black" id="47">a</button>
 	<button class="white" id="48">a</button>
 </div>
-<div class="div5">
+<div class="div5" align="center">
 	<button class="white" id="51">a</button>
 	<button class="black" id="52">a</button>
 	<button class="white" id="53">a</button>
@@ -78,7 +120,7 @@
 	<button class="white" id="57">a</button>
 	<button class="black" id="58">a</button>
 </div>
-<div class="div6">
+<div class="div6" align="center">
 	<button class="black" id="61">a</button>
 	<button class="white" id="62">a</button>
 	<button class="black" id="63">a</button>
@@ -88,7 +130,7 @@
 	<button class="black" id="67">a</button>
 	<button class="white" id="68">a</button>
 </div>
-<div class="div7">
+<div class="div7" align="center">
 	<button class="white" id="71">a</button>
 	<button class="black" id="72">a</button>
 	<button class="white" id="73">a</button>
@@ -98,7 +140,7 @@
 	<button class="white" id="77">a</button>
 	<button class="black" id="78">a</button>
 </div>
-<div class="div8">
+<div class="div8" align="center">
 	<button class="black" id="81">a</button>
 	<button class="white" id="82">a</button>
 	<button class="black" id="83">a</button>
