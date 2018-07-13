@@ -1,5 +1,5 @@
 # JSCheckers
-JSCheckers are the famous game "Checkers" developed in Javascript. It uses the library JQuery (which is included in the folder "javascript", so no need to download it).
+JSCheckers is the famous game "Checkers" developed in Javascript. It uses the library JQuery (which is included in the folder "javascript", so no need to download it).
 
 ## Installation
 Just clone the repository somewhere in your filesystem, decompress the .zip file and open "index.html", that's all!
