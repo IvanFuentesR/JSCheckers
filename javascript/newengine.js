@@ -1,8 +1,8 @@
 $(document).ready(function() {
-	
-	var player1 = new Player1; 
+
+	var player1 = new Player1;
 	var player2 = new Player2;
-	var gameboard = new Board; 
+	var gameboard = new Board;
 	var lastid = [];
 	var idbutton;
 	var ismoving = 0;
@@ -11,8 +11,8 @@ $(document).ready(function() {
 	var postoeatLR;
 	var postoeatLL;
 	player1.ChangeOfTurn(true);
-	player2.ChangeOfTurn(false); 
-	gameboard.createBoxes(); 
+	player2.ChangeOfTurn(false);
+	gameboard.createBoxes();
 
 		$('button').click(function() {
 		lastid.push(idbutton);
@@ -69,7 +69,7 @@ $(document).ready(function() {
 				}
 
 
-				
+
 			}
 
 			else if(gameboard.ReadUnitBoxValue(idbutton) === 2 && player2.ReturnTurn()) {
@@ -116,7 +116,7 @@ $(document).ready(function() {
 					$(".msgconsole").append("No hay movimientos validos.");
 				}
 
-				
+
 
 			}
 
@@ -176,8 +176,8 @@ $(document).ready(function() {
 					gameboard.Move(idbutton,lastid[indexLID],1)
 					player1.ChangeOfTurn(false);
 					player2.ChangeOfTurn(true);
-					ismoving = 0;		
-				
+					ismoving = 0;
+
 					}
 
 					else if(idbutton == positions["ur"]) {
@@ -185,7 +185,7 @@ $(document).ready(function() {
 						gameboard.Move(idbutton,lastid[indexLID],1)
 						player1.ChangeOfTurn(false);
 						player2.ChangeOfTurn(true);
-						ismoving = 0;	
+						ismoving = 0;
 					}
 
 					else if(idbutton == postoeatUR) {
@@ -217,7 +217,7 @@ $(document).ready(function() {
 						$(".msgconsole").append(player2.ReturnPoints());
 					}
 
-					
+
 
 					else {
 					$(".msgconsole").append("El movimiento no es valido.");
@@ -266,8 +266,8 @@ $(document).ready(function() {
 					gameboard.Move(idbutton,lastid[indexLID],2)
 					player1.ChangeOfTurn(true);
 					player2.ChangeOfTurn(false);
-					ismoving = 0;		
-				
+					ismoving = 0;
+
 					}
 
 					else if(idbutton == positions["lr"])
@@ -276,7 +276,7 @@ $(document).ready(function() {
 						gameboard.Move(idbutton,lastid[indexLID],2)
 						player1.ChangeOfTurn(true);
 						player2.ChangeOfTurn(false);
-						ismoving = 0;	
+						ismoving = 0;
 					}
 					else if(idbutton == postoeatLR) {
 						$(".msgconsole").append("Movimiento para COMER!");
@@ -325,17 +325,17 @@ $(document).ready(function() {
 
 
 			}
-			
+
 			}
-	
+
 	});
-	
-	
+
+
 });
 
 var Board = (function() {
 	function Board() {}
-	
+
 	var boxes = []
 
 	Board.prototype.createBoxes = function() {
@@ -344,24 +344,24 @@ var Board = (function() {
 		}
 		Board.loadBoxesValues();
 	}
-	
+
 
 	Board.loadBoxesValues = function() {
 		var zerovalues = []
 		for (var values in boxes) {
-				 
+
 				 var mapclass = $("#"+values).attr("class");
 				 Board.ColorByClass(values,mapclass);
 
-					if (boxes[values] == 2) {               
+					if (boxes[values] == 2) {
 						$("#"+values).css("color", "red");
 						$("#"+values).html("O")
 						}
 
-	                else if (boxes[values] == 1) {	               
+	                else if (boxes[values] == 1) {
 						$("#"+values).css("color", "green");
 						$("#"+values).html("O");
-					} 
+					}
 		}
 	}
 
@@ -373,7 +373,7 @@ var Board = (function() {
 		$("#"+id).css("background-color", btnclass);
 		$("#"+id).css("color", btnclass);
 	}
-	
+
 	Board.prototype.ReadUnitBoxValue = function(key) {
 		return boxes[key];
 	}
@@ -393,31 +393,36 @@ var Board = (function() {
 		Board.loadBoxesValues();
 		return true;
 	}
-	
+
 	Board.prototype.GiveBoxColor = function(pm) {
 			$("#"+pm).css("background-color", "red");
 			$("#"+pm).css("color", "red");
 	}
 
-	
+
 	return Board;
-	
+
 })();
 
 var Player1 = (function() {
-	function Player1() {}
-	
+	function Player1() {
+		console.log("Creando jugador 1...");
+		$( "#jugador1" ).html("Jugador 1: " + points + " puntos");
+
+	}
+
 	var points = 12;
 	var turn;
 
 	Player1.prototype.OnePointLess = function() {
 		points = points - 1;
+		$( "#jugador1" ).html("Jugador 1: " + points);
 	}
-	
+
 	Player1.prototype.ChangeOfTurn = function(t) {
 		turn = t;
 	}
-	
+
 	Player1.prototype.ReturnTurn = function() {
 		return turn;
 	}
@@ -425,24 +430,28 @@ var Player1 = (function() {
 	Player1.prototype.ReturnPoints = function() {
 		return points;
 	}
-	
+
 	return Player1;
 })();
 
 var Player2 = (function() {
-	function Player2() {}
+	function Player2() {
+		$( "#jugador2" ).html("Jugador 2: " + points + " puntos");
+		console.log("Creando jugador 2...");
+	}
 
 	var points = 12;
 	var turn;
-	
+
 	Player2.prototype.OnePointLess = function() {
 		points = points - 1;
+		$( "#jugador2" ).html("Jugador 2: " + points);
 	}
-	
+
 	Player2.prototype.ChangeOfTurn = function(t) {
 		turn = t;
 	}
-	
+
 	Player2.prototype.ReturnTurn = function() {
 		return turn;
 	}
@@ -450,6 +459,6 @@ var Player2 = (function() {
 	Player2.prototype.ReturnPoints = function() {
 		return points;
 	}
-	
+
 	return Player2;
 })();

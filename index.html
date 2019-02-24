@@ -11,7 +11,7 @@
 
 	.msgconsole {
 		text-align: center;
-	} 
+	}
 
 	.white {
 		display: inline-block;
@@ -56,9 +56,18 @@
       height: 25px;
       -webkit-border-radius: 25px;
       -moz-border-radius: 25px;
-      border-radius: 25px;	
+      border-radius: 25px;
       background: green;
     }
+
+		.row {
+  		display: flex;
+			height: 440px;
+		}
+
+		.column {
+  		flex: 50%;
+		}
 
 </style>
 	<meta charset="UTF-8">
@@ -68,90 +77,104 @@
 </head>
 <body>
 
-<div class="header">JS Checkers</div>
+	<div class="header">JS Checkers</div>
 
-<div class="div1" align="center">
-	<button class="white" id="11">a</button>
-	<button class="black" id="12">a</button>
-	<button class="white" id="13">a</button>
-	<button class="black" id="14">a</button>
-	<button class="white" id="15">a</button>
-	<button class="black" id="16">a</button>
-	<button class="white" id="17">a</button>
-	<button class="black" id="18">a</button>
-</div>
-<div class="div2" align="center">
-	<button class="black" id="21">a</button>
-	<button class="white" id="22">a</button>
-	<button class="black" id="23">a</button>
-	<button class="white" id="24">a</button>
-	<button class="black" id="25">a</button>
-	<button class="white" id="26">a</button>
-	<button class="black" id="27">a</button>
-	<button class="white" id="28">a</button>
-</div>
-<div class="div3" align="center">
-	<button class="white" id="31">a</button>
-	<button class="black" id="32">a</button>
-	<button class="white" id="33">a</button>
-	<button class="black" id="34">a</button>
-	<button class="white" id="35">a</button>
-	<button class="black" id="36">a</button>
-	<button class="white" id="37">a</button>
-	<button class="black" id="38">a</button>
-</div>
-<div class="div4" align="center">
-	<button class="black" id="41">a</button>
-	<button class="white" id="42">a</button>
-	<button class="black" id="43">a</button>
-	<button class="white" id="44">a</button>
-	<button class="black" id="45">a</button>
-	<button class="white" id="46">a</button>
-	<button class="black" id="47">a</button>
-	<button class="white" id="48">a</button>
-</div>
-<div class="div5" align="center">
-	<button class="white" id="51">a</button>
-	<button class="black" id="52">a</button>
-	<button class="white" id="53">a</button>
-	<button class="black" id="54">a</button>
-	<button class="white" id="55">a</button>
-	<button class="black" id="56">a</button>
-	<button class="white" id="57">a</button>
-	<button class="black" id="58">a</button>
-</div>
-<div class="div6" align="center">
-	<button class="black" id="61">a</button>
-	<button class="white" id="62">a</button>
-	<button class="black" id="63">a</button>
-	<button class="white" id="64">a</button>
-	<button class="black" id="65">a</button>
-	<button class="white" id="66">a</button>
-	<button class="black" id="67">a</button>
-	<button class="white" id="68">a</button>
-</div>
-<div class="div7" align="center">
-	<button class="white" id="71">a</button>
-	<button class="black" id="72">a</button>
-	<button class="white" id="73">a</button>
-	<button class="black" id="74">a</button>
-	<button class="white" id="75">a</button>
-	<button class="black" id="76">a</button>
-	<button class="white" id="77">a</button>
-	<button class="black" id="78">a</button>
-</div>
-<div class="div8" align="center">
-	<button class="black" id="81">a</button>
-	<button class="white" id="82">a</button>
-	<button class="black" id="83">a</button>
-	<button class="white" id="84">a</button>
-	<button class="black" id="85">a</button>
-	<button class="white" id="86">a</button>
-	<button class="black" id="87">a</button>
-	<button class="white" id="88">a</button>
-</div>
+	<div class="row">
+  	<div class="column">
+			<div class="div1" align="center">
+				<button class="white" id="11">a</button>
+				<button class="black" id="12">a</button>
+				<button class="white" id="13">a</button>
+				<button class="black" id="14">a</button>
+				<button class="white" id="15">a</button>
+				<button class="black" id="16">a</button>
+				<button class="white" id="17">a</button>
+				<button class="black" id="18">a</button>
+			</div>
+			<div class="div2" align="center">
+				<button class="black" id="21">a</button>
+				<button class="white" id="22">a</button>
+				<button class="black" id="23">a</button>
+				<button class="white" id="24">a</button>
+				<button class="black" id="25">a</button>
+				<button class="white" id="26">a</button>
+				<button class="black" id="27">a</button>
+				<button class="white" id="28">a</button>
+			</div>
+			<div class="div3" align="center">
+				<button class="white" id="31">a</button>
+				<button class="black" id="32">a</button>
+				<button class="white" id="33">a</button>
+				<button class="black" id="34">a</button>
+				<button class="white" id="35">a</button>
+				<button class="black" id="36">a</button>
+				<button class="white" id="37">a</button>
+				<button class="black" id="38">a</button>
+			</div>
+			<div class="div4" align="center">
+				<button class="black" id="41">a</button>
+				<button class="white" id="42">a</button>
+				<button class="black" id="43">a</button>
+				<button class="white" id="44">a</button>
+				<button class="black" id="45">a</button>
+				<button class="white" id="46">a</button>
+				<button class="black" id="47">a</button>
+				<button class="white" id="48">a</button>
+			</div>
+			<div class="div5" align="center">
+				<button class="white" id="51">a</button>
+				<button class="black" id="52">a</button>
+				<button class="white" id="53">a</button>
+				<button class="black" id="54">a</button>
+				<button class="white" id="55">a</button>
+				<button class="black" id="56">a</button>
+				<button class="white" id="57">a</button>
+				<button class="black" id="58">a</button>
+			</div>
+			<div class="div6" align="center">
+				<button class="black" id="61">a</button>
+				<button class="white" id="62">a</button>
+				<button class="black" id="63">a</button>
+				<button class="white" id="64">a</button>
+				<button class="black" id="65">a</button>
+				<button class="white" id="66">a</button>
+				<button class="black" id="67">a</button>
+				<button class="white" id="68">a</button>
+			</div>
+			<div class="div7" align="center">
+				<button class="white" id="71">a</button>
+				<button class="black" id="72">a</button>
+				<button class="white" id="73">a</button>
+				<button class="black" id="74">a</button>
+				<button class="white" id="75">a</button>
+				<button class="black" id="76">a</button>
+				<button class="white" id="77">a</button>
+				<button class="black" id="78">a</button>
+			</div>
+			<div class="div8" align="center">
+				<button class="black" id="81">a</button>
+				<button class="white" id="82">a</button>
+				<button class="black" id="83">a</button>
+				<button class="white" id="84">a</button>
+				<button class="black" id="85">a</button>
+				<button class="white" id="86">a</button>
+				<button class="black" id="87">a</button>
+				<button class="white" id="88">a</button>
+			</div>
+		</div>
+  	<div class="column" style="overflow: auto;">
+			<div class="msgconsole"></div>
+		</div>
+	</div>
 
-<div class="msgconsole"></div>
+	<div id="jugador1"></div>
+	<div id="jugador2"></div>
+
+
+
+
+
+
 
 </body>
 </html>
